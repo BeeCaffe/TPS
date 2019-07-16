@@ -3,3 +3,9 @@
 
 CMakeFiles/TPS.dir/main.cpp.o
  /home/caffe/CLionProjects/TPS/main.cpp
+CMakeFiles/TPS.dir/src/tps/Tps.cpp.o
+ /home/caffe/CLionProjects/TPS/src/tps/Tps.cpp
+ /home/caffe/CLionProjects/TPS/src/tps/Tps.h
+CMakeFiles/TPS.dir/src/utils/utils.cpp.o
+ /home/caffe/CLionProjects/TPS/src/utils/utils.cpp
+ /home/caffe/CLionProjects/TPS/src/utils/utils.h

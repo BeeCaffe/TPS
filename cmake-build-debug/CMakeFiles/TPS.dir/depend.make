@@ -3,3 +3,9 @@
 
 CMakeFiles/TPS.dir/main.cpp.o: ../main.cpp
 
+CMakeFiles/TPS.dir/src/tps/Tps.cpp.o: ../src/tps/Tps.cpp
+CMakeFiles/TPS.dir/src/tps/Tps.cpp.o: ../src/tps/Tps.h
+
+CMakeFiles/TPS.dir/src/utils/utils.cpp.o: ../src/utils/utils.cpp
+CMakeFiles/TPS.dir/src/utils/utils.cpp.o: ../src/utils/utils.h
+

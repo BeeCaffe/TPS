@@ -6,9 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/caffe/CLionProjects/TPS/main.cpp
-iostream
--
+/home/caffe/CLionProjects/TPS/src/tps/Tps.cpp
+Tps.h
+/home/caffe/CLionProjects/TPS/src/tps/Tps.h
+
+/home/caffe/CLionProjects/TPS/src/tps/Tps.h
 opencv2/opencv.hpp
 -
+vector
+-
+
+/home/caffe/CLionProjects/TPS/src/utils/utils.cpp
+utils.h
+/home/caffe/CLionProjects/TPS/src/utils/utils.h
+
+/home/caffe/CLionProjects/TPS/src/utils/utils.h
 
