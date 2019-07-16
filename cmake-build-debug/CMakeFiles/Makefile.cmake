@@ -11,8 +11,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.14.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.14.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.14.3/CMakeSystem.cmake"
-  "../src/test/CMakeLists.txt"
-  "../src/tps/CMakeLists.txt"
   "/home/caffe/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCInformation.cmake"
   "/home/caffe/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCXXInformation.cmake"
   "/home/caffe/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
@@ -52,8 +50,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "src/tps/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "src/test/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

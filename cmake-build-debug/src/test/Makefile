@@ -110,6 +110,48 @@ depend:
 	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+src/test/CMakeFiles/utilTest.dir/rule:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/test/CMakeFiles/utilTest.dir/rule
+.PHONY : src/test/CMakeFiles/utilTest.dir/rule
+
+# Convenience name for target.
+utilTest: src/test/CMakeFiles/utilTest.dir/rule
+
+.PHONY : utilTest
+
+# fast build rule for target.
+utilTest/fast:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f src/test/CMakeFiles/utilTest.dir/build.make src/test/CMakeFiles/utilTest.dir/build
+.PHONY : utilTest/fast
+
+utilTest.o: utilTest.cpp.o
+
+.PHONY : utilTest.o
+
+# target to build an object file
+utilTest.cpp.o:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f src/test/CMakeFiles/utilTest.dir/build.make src/test/CMakeFiles/utilTest.dir/utilTest.cpp.o
+.PHONY : utilTest.cpp.o
+
+utilTest.i: utilTest.cpp.i
+
+.PHONY : utilTest.i
+
+# target to preprocess a source file
+utilTest.cpp.i:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f src/test/CMakeFiles/utilTest.dir/build.make src/test/CMakeFiles/utilTest.dir/utilTest.cpp.i
+.PHONY : utilTest.cpp.i
+
+utilTest.s: utilTest.cpp.s
+
+.PHONY : utilTest.s
+
+# target to generate assembly for a file
+utilTest.cpp.s:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f src/test/CMakeFiles/utilTest.dir/build.make src/test/CMakeFiles/utilTest.dir/utilTest.cpp.s
+.PHONY : utilTest.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -117,7 +159,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... utilTest"
 	@echo "... edit_cache"
+	@echo "... utilTest.o"
+	@echo "... utilTest.i"
+	@echo "... utilTest.s"
 .PHONY : help
 
 

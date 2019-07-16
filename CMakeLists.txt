@@ -1,14 +1,28 @@
 cmake_minimum_required(VERSION 3.14)
 project(TPS)
-
 set(CMAKE_CXX_STANDARD 14)
+
+INCLUDE_DIRECTORIES(
+        ${PROJECT_SOURCE_DIR}/include
+)
+
+LINK_DIRECTORIES(
+        ${PROJECT_BINARY_DIR}/lib
+)
+
 FIND_PACKAGE(OpenCV 3 REQUIRED)
 SET(
         EXTERNAL_LIBS
         ${OpenCV_LIBS}
+        UTILS
 )
+
+SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
+
+ADD_SUBDIRECTORY(src)
+ADD_SUBDIRECTORY(test)
+
 INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS})
-ADD_SUBDIRECTORY(src/tps)
-ADD_SUBDIRECTORY(src/test)
-add_executable(TPS main.cpp src/tps/Tps.cpp src/tps/Tps.h src/utils/utils.cpp src/utils/utils.h)
+add_executable(TPS main.cpp)
 TARGET_LINK_LIBRARIES(TPS ${EXTERNAL_LIBS})

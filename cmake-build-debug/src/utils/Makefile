@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles /home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles /home/caffe/CLionProjects/TPS/cmake-build-debug/src/utils/CMakeFiles/progress.marks
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/utils/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/utils/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,58 +97,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/utils/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/utils/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named TPS
+# Convenience name for target.
+src/utils/CMakeFiles/UTILS.dir/rule:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/utils/CMakeFiles/UTILS.dir/rule
+.PHONY : src/utils/CMakeFiles/UTILS.dir/rule
 
-# Build rule for target.
-TPS: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TPS
-.PHONY : TPS
+# Convenience name for target.
+UTILS: src/utils/CMakeFiles/UTILS.dir/rule
+
+.PHONY : UTILS
 
 # fast build rule for target.
-TPS/fast:
-	$(MAKE) -f CMakeFiles/TPS.dir/build.make CMakeFiles/TPS.dir/build
-.PHONY : TPS/fast
+UTILS/fast:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f src/utils/CMakeFiles/UTILS.dir/build.make src/utils/CMakeFiles/UTILS.dir/build
+.PHONY : UTILS/fast
 
-main.o: main.cpp.o
+utils.o: utils.cpp.o
 
-.PHONY : main.o
+.PHONY : utils.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/TPS.dir/build.make CMakeFiles/TPS.dir/main.cpp.o
-.PHONY : main.cpp.o
+utils.cpp.o:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f src/utils/CMakeFiles/UTILS.dir/build.make src/utils/CMakeFiles/UTILS.dir/utils.cpp.o
+.PHONY : utils.cpp.o
 
-main.i: main.cpp.i
+utils.i: utils.cpp.i
 
-.PHONY : main.i
+.PHONY : utils.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/TPS.dir/build.make CMakeFiles/TPS.dir/main.cpp.i
-.PHONY : main.cpp.i
+utils.cpp.i:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f src/utils/CMakeFiles/UTILS.dir/build.make src/utils/CMakeFiles/UTILS.dir/utils.cpp.i
+.PHONY : utils.cpp.i
 
-main.s: main.cpp.s
+utils.s: utils.cpp.s
 
-.PHONY : main.s
+.PHONY : utils.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/TPS.dir/build.make CMakeFiles/TPS.dir/main.cpp.s
-.PHONY : main.cpp.s
+utils.cpp.s:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f src/utils/CMakeFiles/UTILS.dir/build.make src/utils/CMakeFiles/UTILS.dir/utils.cpp.s
+.PHONY : utils.cpp.s
 
 # Help Target
 help:
@@ -157,11 +159,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... TPS"
+	@echo "... UTILS"
 	@echo "... edit_cache"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... utils.o"
+	@echo "... utils.i"
+	@echo "... utils.s"
 .PHONY : help
 
 
@@ -173,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

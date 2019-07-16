@@ -1,0 +1,2 @@
+ADD_EXECUTABLE(utilTest utilTest.cpp)
+TARGET_LINK_LIBRARIES(utilTest TPS)

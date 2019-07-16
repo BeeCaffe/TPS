@@ -5,7 +5,7 @@
 		<Option title="TPS"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\usr\local\share\OpenCV\;CMake Files\src\;CMake Files\src\tps\;CMake Files\src\test\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\usr\local\share\OpenCV\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/caffe/CLionProjects/TPS/cmake-build-debug"/>
@@ -89,18 +89,6 @@
 		<Unit filename="/home/caffe/CLionProjects/TPS/main.cpp">
 			<Option target="TPS"/>
 		</Unit>
-		<Unit filename="/home/caffe/CLionProjects/TPS/src/tps/Tps.cpp">
-			<Option target="TPS"/>
-		</Unit>
-		<Unit filename="/home/caffe/CLionProjects/TPS/src/tps/Tps.h">
-			<Option target="TPS"/>
-		</Unit>
-		<Unit filename="/home/caffe/CLionProjects/TPS/src/utils/utils.cpp">
-			<Option target="TPS"/>
-		</Unit>
-		<Unit filename="/home/caffe/CLionProjects/TPS/src/utils/utils.h">
-			<Option target="TPS"/>
-		</Unit>
 		<Unit filename="/home/caffe/CLionProjects/TPS/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
@@ -115,12 +103,6 @@
 		</Unit>
 		<Unit filename="/home/caffe/CLionProjects/TPS/../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
-		</Unit>
-		<Unit filename="/home/caffe/CLionProjects/TPS/src/tps/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\src\tps\"/>
-		</Unit>
-		<Unit filename="/home/caffe/CLionProjects/TPS/src/test/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\src\test\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

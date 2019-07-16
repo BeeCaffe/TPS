@@ -1,7 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/TPS.dir/main.cpp.o"
-  "CMakeFiles/TPS.dir/src/tps/Tps.cpp.o"
-  "CMakeFiles/TPS.dir/src/utils/utils.cpp.o"
   "TPS.pdb"
   "TPS"
 )
