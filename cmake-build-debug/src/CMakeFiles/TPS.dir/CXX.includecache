@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/caffe/CLionProjects/TPS/include/utils/utils.h
+map
+-
+string
+-
+fstream
+-
+
+/home/caffe/CLionProjects/TPS/src/utils/utils.cpp
+../../include/utils/utils.h
+/home/caffe/CLionProjects/TPS/include/utils/utils.h
+

@@ -26,7 +26,7 @@ namespace tps {
         std::vector<cv::Mat> prjImList;
         const std::string camImRoot;
         const std::string prjImRoot;
-        const std::string confFilePath = "config/path.conf";
+        const std::string confFilePath = "config/conf.txt";
     };
 }
 

@@ -5,7 +5,7 @@
 		<Option title="TPS"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\usr\local\share\OpenCV\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\usr\local\share\OpenCV\;CMake Files\src\;CMake Files\test\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/caffe/CLionProjects/TPS/cmake-build-debug"/>
@@ -27,54 +27,6 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="TPS">
-				<Option output="/home/caffe/CLionProjects/TPS/cmake-build-debug/TPS" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/caffe/CLionProjects/TPS/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/local/include/opencv"/>
-					<Add directory="/usr/include/c++/8"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
-					<Add directory="/usr/include/c++/8/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/Makefile&quot;  VERBOSE=1 TPS"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="TPS/fast">
-				<Option output="/home/caffe/CLionProjects/TPS/cmake-build-debug/TPS" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/caffe/CLionProjects/TPS/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/local/include/opencv"/>
-					<Add directory="/usr/include/c++/8"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
-					<Add directory="/usr/include/c++/8/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/Makefile&quot;  VERBOSE=1 TPS/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="/home/caffe/CLionProjects/TPS/cmake-build-debug"/>
 				<Option type="4"/>
@@ -85,9 +37,165 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="TPS">
+				<Option output="/home/caffe/CLionProjects/TPS/cmake-build-debug/lib/libTPS.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/caffe/CLionProjects/TPS/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/caffe/CLionProjects/TPS/include"/>
+					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 TPS"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TPS/fast">
+				<Option output="/home/caffe/CLionProjects/TPS/cmake-build-debug/lib/libTPS.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/caffe/CLionProjects/TPS/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/caffe/CLionProjects/TPS/include"/>
+					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 TPS/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TPS_STATIC">
+				<Option output="/home/caffe/CLionProjects/TPS/cmake-build-debug/lib/libTPS.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/caffe/CLionProjects/TPS/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/caffe/CLionProjects/TPS/include"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 TPS_STATIC"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TPS_STATIC/fast">
+				<Option output="/home/caffe/CLionProjects/TPS/cmake-build-debug/lib/libTPS.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/caffe/CLionProjects/TPS/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/caffe/CLionProjects/TPS/include"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 TPS_STATIC/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="utilTest">
+				<Option output="/home/caffe/CLionProjects/TPS/cmake-build-debug/bin/utilTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/caffe/CLionProjects/TPS/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/caffe/CLionProjects/TPS/include"/>
+					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 utilTest"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="utilTest/fast">
+				<Option output="/home/caffe/CLionProjects/TPS/cmake-build-debug/bin/utilTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/caffe/CLionProjects/TPS/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/caffe/CLionProjects/TPS/include"/>
+					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 utilTest/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/caffe/CLionProjects/TPS/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
-		<Unit filename="/home/caffe/CLionProjects/TPS/main.cpp">
+		<Unit filename="/home/caffe/CLionProjects/TPS/src/tps/Tps.cpp">
 			<Option target="TPS"/>
+			<Option target="TPS_STATIC"/>
+		</Unit>
+		<Unit filename="/home/caffe/CLionProjects/TPS/src/utils/utils.cpp">
+			<Option target="TPS"/>
+			<Option target="TPS_STATIC"/>
+		</Unit>
+		<Unit filename="/home/caffe/CLionProjects/TPS/test/utilTest.cpp">
+			<Option target="utilTest"/>
 		</Unit>
 		<Unit filename="/home/caffe/CLionProjects/TPS/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
@@ -103,6 +211,12 @@
 		</Unit>
 		<Unit filename="/home/caffe/CLionProjects/TPS/../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/caffe/CLionProjects/TPS/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/home/caffe/CLionProjects/TPS/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\test\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

@@ -4,9 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/caffe/CLionProjects/TPS/test/utilTest.cpp" "/home/caffe/CLionProjects/TPS/cmake-build-debug/test/CMakeFiles/utilTest.dir/utilTest.cpp.o"
+  "/home/caffe/CLionProjects/TPS/src/tps/Tps.cpp" "/home/caffe/CLionProjects/TPS/cmake-build-debug/src/CMakeFiles/TPS.dir/tps/Tps.cpp.o"
+  "/home/caffe/CLionProjects/TPS/src/utils/utils.cpp" "/home/caffe/CLionProjects/TPS/cmake-build-debug/src/CMakeFiles/TPS.dir/utils/utils.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
+
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_CXX
+  "TPS_EXPORTS"
+  )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
@@ -16,7 +22,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/caffe/CLionProjects/TPS/cmake-build-debug/src/CMakeFiles/TPS.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

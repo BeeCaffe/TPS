@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/caffe/CLionProjects/TPS/include -isystem /usr/local/include/opencv 
+CXX_INCLUDES = -I/home/caffe/CLionProjects/TPS/include 
 

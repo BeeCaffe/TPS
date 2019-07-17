@@ -41,8 +41,6 @@ void readConf(string confPath, map<string,string> &m_mapConfInfo){
             m_mapConfInfo.insert(key,value);
         }
     } else{
-
         perror("file not exist!");
-
     }
 }

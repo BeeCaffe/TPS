@@ -120,35 +120,34 @@ TPS: cmake_check_build_system
 
 # fast build rule for target.
 TPS/fast:
-	$(MAKE) -f CMakeFiles/TPS.dir/build.make CMakeFiles/TPS.dir/build
+	$(MAKE) -f src/CMakeFiles/TPS.dir/build.make src/CMakeFiles/TPS.dir/build
 .PHONY : TPS/fast
 
-main.o: main.cpp.o
+#=============================================================================
+# Target rules for targets named TPS_STATIC
 
-.PHONY : main.o
+# Build rule for target.
+TPS_STATIC: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TPS_STATIC
+.PHONY : TPS_STATIC
 
-# target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/TPS.dir/build.make CMakeFiles/TPS.dir/main.cpp.o
-.PHONY : main.cpp.o
+# fast build rule for target.
+TPS_STATIC/fast:
+	$(MAKE) -f src/CMakeFiles/TPS_STATIC.dir/build.make src/CMakeFiles/TPS_STATIC.dir/build
+.PHONY : TPS_STATIC/fast
 
-main.i: main.cpp.i
+#=============================================================================
+# Target rules for targets named utilTest
 
-.PHONY : main.i
+# Build rule for target.
+utilTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 utilTest
+.PHONY : utilTest
 
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/TPS.dir/build.make CMakeFiles/TPS.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/TPS.dir/build.make CMakeFiles/TPS.dir/main.cpp.s
-.PHONY : main.cpp.s
+# fast build rule for target.
+utilTest/fast:
+	$(MAKE) -f test/CMakeFiles/utilTest.dir/build.make test/CMakeFiles/utilTest.dir/build
+.PHONY : utilTest/fast
 
 # Help Target
 help:
@@ -157,11 +156,10 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... TPS"
 	@echo "... edit_cache"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... TPS"
+	@echo "... TPS_STATIC"
+	@echo "... utilTest"
 .PHONY : help
 
 

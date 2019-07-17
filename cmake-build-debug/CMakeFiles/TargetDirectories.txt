@@ -1,3 +1,9 @@
 /home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles/TPS.dir
 /home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/caffe/CLionProjects/TPS/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
+/home/caffe/CLionProjects/TPS/cmake-build-debug/src/CMakeFiles/edit_cache.dir
+/home/caffe/CLionProjects/TPS/cmake-build-debug/src/CMakeFiles/TPS.dir
+/home/caffe/CLionProjects/TPS/cmake-build-debug/src/CMakeFiles/TPS_STATIC.dir
+/home/caffe/CLionProjects/TPS/cmake-build-debug/test/CMakeFiles/rebuild_cache.dir
+/home/caffe/CLionProjects/TPS/cmake-build-debug/test/CMakeFiles/utilTest.dir
+/home/caffe/CLionProjects/TPS/cmake-build-debug/test/CMakeFiles/edit_cache.dir

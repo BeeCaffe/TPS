@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libTPS.a  CMakeFiles/TPS_STATIC.dir/tps/Tps.cpp.o CMakeFiles/TPS_STATIC.dir/utils/utils.cpp.o
+/usr/bin/ranlib ../lib/libTPS.a
