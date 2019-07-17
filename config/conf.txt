@@ -1,2 +1,2 @@
-CameraImagesRoot = resource/camIm/
-ProjectImagesRoot = resource/prjIm/
+CameraImagesRoot=resource/camIm/
+ProjectImagesRoot=resource/prjIm/

@@ -38,7 +38,7 @@ void readConf(string confPath, map<string,string> &m_mapConfInfo){
 
             string value = strLine.substr(pos+1);
 
-            m_mapConfInfo.insert(key,value);
+            m_mapConfInfo.insert(pair<string,string>(key,value));
         }
     } else{
         perror("file not exist!");
