@@ -4,6 +4,11 @@
 
 #ifndef TPS_TPS_H
 #define TPS_TPS_H
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <Eigen/Dense>
 #include <opencv2/opencv.hpp>
 #include <Eigen/Core>
 #include <fstream>
@@ -19,8 +24,8 @@ namespace tps {
         /**getter and setter**/
         int getRows(){ return rows;}
         int getCols(){ return cols;}
-        vector<cv::Mat> getCamImList(){ return camImList;}
-        vector<cv::Mat> getPrjImList(){ return prjImList;}
+        std::vector<cv::Mat> getCamImList(){ return camImList;}
+        std::vector<cv::Mat> getPrjImList(){ return prjImList;}
 
         /**
          * load all images in 'camera capture images' file dir and 'projection images' file dir's images to
@@ -32,7 +37,10 @@ namespace tps {
         Eigen::MatrixXf loadK(Eigen::MatrixXf& Q);
         Eigen::MatrixXf loadL(Eigen::MatrixXf& Q, Eigen::MatrixXf& K);
         Eigen::MatrixXf computeW(Eigen::MatrixXf& L,Eigen::MatrixXf& P);
-
+        void computeAllW(const int statRows);
+        /**compensate image**/
+        Eigen::Vector3f compenSgPx(Eigen::Vector3f& c_in,const int rows, const int cols);
+        cv::Mat compenSgIm(cv::Mat& img);
         /**other functions**/
         double fi(double d);
     private:
@@ -42,6 +50,7 @@ namespace tps {
         std::vector<cv::Mat> prjImList;
         std::string camImRoot;
         std::string prjImRoot;
+        std::string weightSaveRoot;
         const std::string confFilePath = "config/conf.txt";
         int N;
     };

@@ -5,10 +5,6 @@ using namespace tps;
 void loadImgsTest(){
     Tps tps1 = Tps();
     tps1.loadImgs();
-    vector<cv::Mat> camImList = tps1.getCamImList();
-    for(auto im:camImList){
-     std::cout<< sizeof(im.ptr<cv::Vec3f>(0)[0][0])<<endl;
-    }
 }
 
 void loadPTest(){
@@ -34,9 +30,36 @@ void loadLTest(){
     std::cout<<L<<endl;
 }
 
+void computeWTest(){
+    Tps tps1 = Tps();
+    tps1.loadImgs();
+    Eigen::MatrixXf Q=tps1.loadQ(0,0);
+    Eigen::MatrixXf K=tps1.loadK(Q);
+    Eigen::MatrixXf L=tps1.loadL(Q,K);
+    Eigen::MatrixXf P=tps1.loadP(0,0);
+    Eigen::MatrixXf W=tps1.computeW(L,P);
+    std::cout<<W<<endl;
+}
+
+void computeAllWTest(){
+    Tps tps1= Tps();
+    tps1.computeAllW(0);
+}
+
+void compenSgPxTest(){
+    Tps tps1= Tps();
+    Eigen::Vector3f c_in;
+    c_in<<1.,1.,1.;
+    Eigen::Vector3f px = tps1.compenSgPx(c_in,0,0);
+    cout<<px<<endl;
+}
+
 int main(){
-//    loadImgsTest();
+    loadImgsTest();
 //    loadPTest();
 //    loadQTest();
-    loadLTest();
+//    loadLTest();
+//    computeWTest();
+//    computeAllWTest();
+//    compenSgPxTest();
 }

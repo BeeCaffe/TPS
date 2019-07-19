@@ -1,2 +1,3 @@
 CameraImagesRoot=resource/camIm/
 ProjectImagesRoot=resource/prjIm/
+WeightSaveRoot=resource/weight/

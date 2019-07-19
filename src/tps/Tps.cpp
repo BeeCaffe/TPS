@@ -15,6 +15,18 @@ Tps::Tps() {
     camImRoot = iter->second;
     iter = confMap.find("ProjectImagesRoot");
     prjImRoot = iter->second;
+    iter = confMap.find("WeightSaveRoot");
+    weightSaveRoot = iter->second;
+    /**if directory not exist, build it.**/
+    if(0!=access(camImRoot.c_str(),0)){
+        mkdir(camImRoot.c_str(),0775);
+    }
+    if(0!=access(prjImRoot.c_str(),0)){
+        mkdir(prjImRoot.c_str(),0775);
+    }
+    if(0!=access(weightSaveRoot.c_str(),0)){
+        mkdir(weightSaveRoot.c_str(),0775);
+    }
 }
 
 void Tps::loadImgs() {
@@ -26,7 +38,13 @@ void Tps::loadImgs() {
     vector<cv::String> prjImPath;
     cv::glob(camImRoot,camImPath);
     cv::glob(prjImRoot,prjImPath);
-    /**travels all image in the directory and read them to the vector**/
+//    for(auto name:camImPath){
+//        std::cout<<name<<endl;
+//    }
+//    for(auto name:prjImPath) {
+//        std::cout<<name<<endl;
+//    }
+        /**travels all image in the directory and read them to the vector**/
     for (auto path:camImPath){
         cv::Mat img = cv::imread(path,CV_LOAD_IMAGE_UNCHANGED);
         cv::Mat imf;
@@ -135,8 +153,8 @@ Eigen::MatrixXf Tps::loadL(Eigen::MatrixXf& Q,Eigen::MatrixXf& K) {
      Eigen::MatrixXf Qt = Q.transpose();
      Eigen::MatrixXf O = Eigen::ArrayXXf::Zero(4,4);
      L.topLeftCorner(N,N)=K;
-     L.topRightCorner(4,N)=Q;
-     L.bottomLeftCorner(N,4)=Qt;
+     L.topRightCorner(N,4)=Q;
+     L.bottomLeftCorner(4,N)=Qt;
      L.bottomRightCorner(4,4)=O;
     return L;
 }
@@ -154,10 +172,87 @@ Eigen::MatrixXf Tps::computeW(Eigen::MatrixXf &L, Eigen::MatrixXf &P) {
      Eigen::MatrixXf Linv = L.inverse();
      Eigen::MatrixXf b(N+4,3);
      Eigen::MatrixXf W(N+4,3);
-     b.topLeftCorner(N,4)=P;
+     b.topLeftCorner(N,3)=P;
      b.bottomLeftCorner(4,3) = Eigen::ArrayXXf::Zero(4,3);
      W=Linv*b;
     return W;
+}
+
+void Tps::computeAllW(const int statRows){
+    loadImgs();
+    time_t statTm = time((time_t*)NULL);
+    for(int i=statRows;i<rows;i++){
+        for(int j=0;j<cols;j++){
+            Eigen::MatrixXf Q=loadQ(i,j);
+            Eigen::MatrixXf K=loadK(Q);
+            Eigen::MatrixXf L=loadL(Q,K);
+            Eigen::MatrixXf P=loadP(i,j);
+            Eigen::MatrixXf W=computeW(L,P);
+            string fileName = weightSaveRoot+"w_"+to_string(i)+'x'+to_string(j)+".txt";
+            savetxt(fileName,W);
+            time_t endTm = time((time_t*)NULL);
+            process(i*cols+j,cols*rows,statTm,endTm);
+        }
+    }
+}
+
+Eigen::Vector3f Tps::compenSgPx(Eigen::Vector3f& c_in,const int rows, const int cols){
+    /**
+     * brief : using thin plate interpolation to compensate single piexl.
+     *
+     * c_in : the input [b,g,r] of single piexl.
+     *
+     * rows: the rows
+     *
+     * cols : the cols
+     *
+     * return : c_out -> the single pixel of [b,g,r]
+     */
+     loadImgs();
+    string wFileNm = weightSaveRoot+"w_"+to_string(rows)+'x'+to_string(cols)+".txt";
+    Eigen::MatrixXf W = loadtxt(wFileNm); //(N+4)x3
+    Eigen::MatrixXf Q = loadQ(rows,cols); //(N+4)x4
+    double r=0.,g=0.,b=0.;
+    for(size_t i=0;i<N;i++){
+        double sum=0.;
+        for(size_t j=0;j<3;j++){
+            sum+=pow(c_in(j)-Q(i,j+1),2);
+        }
+        sum = fi(sqrt(sum));
+        b+=W(i,0)*sum;
+        g+=W(i,1)*sum;
+        r+=W(i,2)*sum;
+    }
+    b+=W(N,0)+W(N+1,0)*c_in[2]+W(N+2,0)*c_in[1]+W(N+3,0)*c_in[0];
+    g+=W(N,0)+W(N+1,1)*c_in[2]+W(N+2,1)*c_in[1]+W(N+3,1)*c_in[0];
+    r+=W(N,0)+W(N+1,2)*c_in[2]+W(N+2,2)*c_in[1]+W(N+3,2)*c_in[0];
+    Eigen::Vector3f c_out;
+    c_out<<b,g,r;
+    return c_out;
+}
+
+cv::Mat Tps::compenSgIm(cv::Mat& img) {
+    /**
+     * brief : compensate singe image.
+     *
+     * img : the image.
+     *
+     * return image.
+     */
+     cv::Mat cpIm=img.clone();
+    Eigen::Vector3f px;
+    for(size_t i=0;i<img.rows;i++){
+        for(size_t j=0;j<img.cols;j++){
+            px(0) = img.ptr<cv::Vec3f>(i)[j][0],
+            px(1) = img.ptr<cv::Vec3f>(i)[j][1],
+            px(2) = img.ptr<cv::Vec3f>(i)[j][2];
+            px = compenSgPx(px,rows,cols);
+            cpIm.ptr<cv::Vec3f>(i)[j][0]=px(0);
+            cpIm.ptr<cv::Vec3f>(i)[j][1]=px(1);
+            cpIm.ptr<cv::Vec3f>(i)[j][2]=px(2);
+        }
+    }
+    return cpIm;
 }
 
 double Tps::fi(double d){
