@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/caffe/clion-2019.1.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/73/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/caffe/clion-2019.1.4/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/73/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -94,23 +94,53 @@ TPS_EXTERNAL_OBJECTS =
 lib/libTPS.so: src/CMakeFiles/TPS.dir/tps/Tps.cpp.o
 lib/libTPS.so: src/CMakeFiles/TPS.dir/utils/utils.cpp.o
 lib/libTPS.so: src/CMakeFiles/TPS.dir/build.make
-lib/libTPS.so: /usr/local/lib/libopencv_dnn.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_ml.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_objdetect.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_shape.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_stitching.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_superres.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_videostab.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_calib3d.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_features2d.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_flann.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_highgui.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_photo.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_video.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_videoio.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_imgcodecs.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_imgproc.so.3.4.6
-lib/libTPS.so: /usr/local/lib/libopencv_core.so.3.4.6
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_stitching.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_superres.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_videostab.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_aruco.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_bgsegm.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_bioinspired.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_ccalib.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_dnn_modern.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_dnn_objdetect.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_dpm.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_face.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_freetype.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_fuzzy.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_hdf.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_hfs.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_img_hash.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_line_descriptor.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_optflow.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_reg.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_rgbd.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_saliency.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_stereo.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_structured_light.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_surface_matching.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_tracking.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_xfeatures2d.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_ximgproc.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_xobjdetect.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_xphoto.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_shape.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_photo.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_datasets.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_plot.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_text.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_dnn.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_ml.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_video.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_calib3d.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_features2d.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_highgui.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_videoio.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_phase_unwrapping.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_flann.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_imgcodecs.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_objdetect.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_imgproc.so.3.4.1
+lib/libTPS.so: /home/caffe/anaconda3/lib/libopencv_core.so.3.4.1
 lib/libTPS.so: src/CMakeFiles/TPS.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library ../lib/libTPS.so"
 	cd /home/caffe/CLionProjects/TPS/cmake-build-debug/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TPS.dir/link.txt --verbose=$(VERBOSE)

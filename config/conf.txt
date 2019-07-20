@@ -1,3 +1,5 @@
 CameraImagesRoot=resource/camIm/
 ProjectImagesRoot=resource/prjIm/
-WeightSaveRoot=resource/weight/
+WeightSaveRoot=/home/caffe/weight/
+CompenImagesRoot=resource/compen/
+CompenSaveRoot=resource/compened/

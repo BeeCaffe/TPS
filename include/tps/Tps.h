@@ -41,6 +41,7 @@ namespace tps {
         /**compensate image**/
         Eigen::Vector3f compenSgPx(Eigen::Vector3f& c_in,const int rows, const int cols);
         cv::Mat compenSgIm(cv::Mat& img);
+        void compenIms();
         /**other functions**/
         double fi(double d);
     private:
@@ -52,6 +53,8 @@ namespace tps {
         std::string prjImRoot;
         std::string weightSaveRoot;
         const std::string confFilePath = "config/conf.txt";
+        std::string compenRoot;
+        std::string compenedRoot;
         int N;
     };
 }

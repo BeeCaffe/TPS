@@ -77,9 +77,9 @@ Eigen::MatrixXf loadtxt(string& path){
     }
     size_t rows = mat.size();
     size_t cols = mat[0].size();
-    if(rows==0 || cols ==0 ){
-        perror("load txt error : *txt file is empty!");
-    }
+//    if(rows==0 || cols ==0 ){
+//        perror("load txt error : *txt file is empty!");
+//    }
     Eigen::MatrixXf e_mat(rows,cols);
     for(size_t i=0;i<rows;i++){
         for(size_t j=0;j<cols;j++){
@@ -110,7 +110,7 @@ int savetxt(string& path,Eigen::MatrixXf mat){
          return -1;
      }
      ofstream os;
-     os.open(dir+name,ios::app | ios::out);
+     os.open(dir+name,ios::out);
      if(os.is_open()){
          os<<mat;
      } else{
@@ -133,12 +133,12 @@ void process(const int now, const int total , time_t statTm, time_t endTm){
      *
      * endTm : end time
      */
-     int range = 70;
+     int range = 100;
      time_t detaTm = endTm - statTm;
      time_t h = detaTm/3600;
      time_t m = (detaTm-h*3600)/60;
      time_t s = detaTm%60;
-     double pcent = ((double)now/total)*range;
+     double pcent = ((double)now/total)*100;
      printf("Number : %d/%d | Rate : %2.4lf%% | Time : %d:%d:%d | [",now,total,pcent,h,m,s);
      for(size_t i=0;i<pcent-1;i++){
          printf("=");

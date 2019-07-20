@@ -10,21 +10,21 @@ void loadImgsTest(){
 void loadPTest(){
     Tps tps1 = Tps();
     tps1.loadImgs();
-    Eigen::MatrixXf P=tps1.loadP(0,0);
+    Eigen::MatrixXf P=tps1.loadP(0,540);
     std::cout<<P<<endl;
 }
 
 void loadQTest(){
     Tps tps1 = Tps();
     tps1.loadImgs();
-    Eigen::MatrixXf Q=tps1.loadQ(0,0);
+    Eigen::MatrixXf Q=tps1.loadQ(0,540);
     std::cout<<Q<<endl;
 }
 
 void loadLTest(){
     Tps tps1 = Tps();
     tps1.loadImgs();
-    Eigen::MatrixXf Q=tps1.loadQ(0,0);
+    Eigen::MatrixXf Q=tps1.loadQ(0,540);
     Eigen::MatrixXf K=tps1.loadK(Q);
     Eigen::MatrixXf L=tps1.loadL(Q,K);
     std::cout<<L<<endl;
@@ -33,10 +33,10 @@ void loadLTest(){
 void computeWTest(){
     Tps tps1 = Tps();
     tps1.loadImgs();
-    Eigen::MatrixXf Q=tps1.loadQ(0,0);
+    Eigen::MatrixXf Q=tps1.loadQ(0,540);
     Eigen::MatrixXf K=tps1.loadK(Q);
     Eigen::MatrixXf L=tps1.loadL(Q,K);
-    Eigen::MatrixXf P=tps1.loadP(0,0);
+    Eigen::MatrixXf P=tps1.loadP(0,540);
     Eigen::MatrixXf W=tps1.computeW(L,P);
     std::cout<<W<<endl;
 }
@@ -54,12 +54,20 @@ void compenSgPxTest(){
     cout<<px<<endl;
 }
 
+void loadKTest(){
+    Tps tps1 = Tps();
+    tps1.loadImgs();
+    Eigen::MatrixXf Q=tps1.loadQ(0,540);
+    Eigen::MatrixXf K=tps1.loadK(Q);
+    cout<<K<<endl;
+}
 int main(){
-    loadImgsTest();
+//    loadImgsTest();
 //    loadPTest();
 //    loadQTest();
+//    loadKTest();
 //    loadLTest();
-//    computeWTest();
+    computeWTest();
 //    computeAllWTest();
 //    compenSgPxTest();
 }

@@ -6,5 +6,5 @@ CXX_FLAGS = -g -fPIC   -std=gnu++14
 
 CXX_DEFINES = -DTPS_EXPORTS
 
-CXX_INCLUDES = -I/home/caffe/CLionProjects/TPS/include -isystem /usr/local/include/opencv 
+CXX_INCLUDES = -I/home/caffe/CLionProjects/TPS/include -isystem /home/caffe/anaconda3/include -isystem /home/caffe/anaconda3/include/opencv 
 

@@ -50,10 +50,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/caffe/clion-2019.1.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/73/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/caffe/clion-2019.1.4/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/73/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -162,12 +162,16 @@ clean: src/CMakeFiles/TPS_STATIC.dir/clean
 # Directory level rules for directory test
 
 # Convenience name for "all" pass in the directory.
+test/all: test/CMakeFiles/main.dir/all
 test/all: test/CMakeFiles/utilTest.dir/all
+test/all: test/CMakeFiles/tpsTest.dir/all
 
 .PHONY : test/all
 
 # Convenience name for "clean" pass in the directory.
+test/clean: test/CMakeFiles/main.dir/clean
 test/clean: test/CMakeFiles/utilTest.dir/clean
+test/clean: test/CMakeFiles/tpsTest.dir/clean
 
 .PHONY : test/clean
 
@@ -177,13 +181,50 @@ test/preinstall:
 .PHONY : test/preinstall
 
 #=============================================================================
+# Target rules for target test/CMakeFiles/main.dir
+
+# All Build rule for target.
+test/CMakeFiles/main.dir/all: src/CMakeFiles/TPS.dir/all
+	$(MAKE) -f test/CMakeFiles/main.dir/build.make test/CMakeFiles/main.dir/depend
+	$(MAKE) -f test/CMakeFiles/main.dir/build.make test/CMakeFiles/main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target main"
+.PHONY : test/CMakeFiles/main.dir/all
+
+# Include target in all.
+all: test/CMakeFiles/main.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles 0
+.PHONY : test/CMakeFiles/main.dir/rule
+
+# Convenience name for target.
+main: test/CMakeFiles/main.dir/rule
+
+.PHONY : main
+
+# clean rule for target.
+test/CMakeFiles/main.dir/clean:
+	$(MAKE) -f test/CMakeFiles/main.dir/build.make test/CMakeFiles/main.dir/clean
+.PHONY : test/CMakeFiles/main.dir/clean
+
+# clean rule for target.
+clean: test/CMakeFiles/main.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target test/CMakeFiles/utilTest.dir
 
 # All Build rule for target.
 test/CMakeFiles/utilTest.dir/all: src/CMakeFiles/TPS.dir/all
 	$(MAKE) -f test/CMakeFiles/utilTest.dir/build.make test/CMakeFiles/utilTest.dir/depend
 	$(MAKE) -f test/CMakeFiles/utilTest.dir/build.make test/CMakeFiles/utilTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target utilTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles --progress-num=11,12 "Built target utilTest"
 .PHONY : test/CMakeFiles/utilTest.dir/all
 
 # Include target in all.
@@ -210,6 +251,43 @@ test/CMakeFiles/utilTest.dir/clean:
 
 # clean rule for target.
 clean: test/CMakeFiles/utilTest.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target test/CMakeFiles/tpsTest.dir
+
+# All Build rule for target.
+test/CMakeFiles/tpsTest.dir/all: src/CMakeFiles/TPS.dir/all
+	$(MAKE) -f test/CMakeFiles/tpsTest.dir/build.make test/CMakeFiles/tpsTest.dir/depend
+	$(MAKE) -f test/CMakeFiles/tpsTest.dir/build.make test/CMakeFiles/tpsTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles --progress-num=9,10 "Built target tpsTest"
+.PHONY : test/CMakeFiles/tpsTest.dir/all
+
+# Include target in all.
+all: test/CMakeFiles/tpsTest.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/tpsTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tpsTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/caffe/CLionProjects/TPS/cmake-build-debug/CMakeFiles 0
+.PHONY : test/CMakeFiles/tpsTest.dir/rule
+
+# Convenience name for target.
+tpsTest: test/CMakeFiles/tpsTest.dir/rule
+
+.PHONY : tpsTest
+
+# clean rule for target.
+test/CMakeFiles/tpsTest.dir/clean:
+	$(MAKE) -f test/CMakeFiles/tpsTest.dir/build.make test/CMakeFiles/tpsTest.dir/clean
+.PHONY : test/CMakeFiles/tpsTest.dir/clean
+
+# clean rule for target.
+clean: test/CMakeFiles/tpsTest.dir/clean
 
 .PHONY : clean
 

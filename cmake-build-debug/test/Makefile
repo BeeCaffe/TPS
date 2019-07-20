@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/caffe/clion-2019.1.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/73/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/caffe/clion-2019.1.4/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/73/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/caffe/CLionProjects/TPS/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/caffe/clion-2019.1.4/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/73/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/caffe/clion-2019.1.4/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/73/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+test/CMakeFiles/main.dir/rule:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/main.dir/rule
+.PHONY : test/CMakeFiles/main.dir/rule
+
+# Convenience name for target.
+main: test/CMakeFiles/main.dir/rule
+
+.PHONY : main
+
+# fast build rule for target.
+main/fast:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f test/CMakeFiles/main.dir/build.make test/CMakeFiles/main.dir/build
+.PHONY : main/fast
+
+# Convenience name for target.
 test/CMakeFiles/utilTest.dir/rule:
 	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/utilTest.dir/rule
 .PHONY : test/CMakeFiles/utilTest.dir/rule
@@ -124,6 +139,75 @@ utilTest: test/CMakeFiles/utilTest.dir/rule
 utilTest/fast:
 	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f test/CMakeFiles/utilTest.dir/build.make test/CMakeFiles/utilTest.dir/build
 .PHONY : utilTest/fast
+
+# Convenience name for target.
+test/CMakeFiles/tpsTest.dir/rule:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tpsTest.dir/rule
+.PHONY : test/CMakeFiles/tpsTest.dir/rule
+
+# Convenience name for target.
+tpsTest: test/CMakeFiles/tpsTest.dir/rule
+
+.PHONY : tpsTest
+
+# fast build rule for target.
+tpsTest/fast:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f test/CMakeFiles/tpsTest.dir/build.make test/CMakeFiles/tpsTest.dir/build
+.PHONY : tpsTest/fast
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f test/CMakeFiles/main.dir/build.make test/CMakeFiles/main.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f test/CMakeFiles/main.dir/build.make test/CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f test/CMakeFiles/main.dir/build.make test/CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
+
+tpsTest.o: tpsTest.cpp.o
+
+.PHONY : tpsTest.o
+
+# target to build an object file
+tpsTest.cpp.o:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f test/CMakeFiles/tpsTest.dir/build.make test/CMakeFiles/tpsTest.dir/tpsTest.cpp.o
+.PHONY : tpsTest.cpp.o
+
+tpsTest.i: tpsTest.cpp.i
+
+.PHONY : tpsTest.i
+
+# target to preprocess a source file
+tpsTest.cpp.i:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f test/CMakeFiles/tpsTest.dir/build.make test/CMakeFiles/tpsTest.dir/tpsTest.cpp.i
+.PHONY : tpsTest.cpp.i
+
+tpsTest.s: tpsTest.cpp.s
+
+.PHONY : tpsTest.s
+
+# target to generate assembly for a file
+tpsTest.cpp.s:
+	cd /home/caffe/CLionProjects/TPS/cmake-build-debug && $(MAKE) -f test/CMakeFiles/tpsTest.dir/build.make test/CMakeFiles/tpsTest.dir/tpsTest.cpp.s
+.PHONY : tpsTest.cpp.s
 
 utilTest.o: utilTest.cpp.o
 
@@ -159,8 +243,16 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... utilTest"
 	@echo "... edit_cache"
+	@echo "... main"
+	@echo "... utilTest"
+	@echo "... tpsTest"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... tpsTest.o"
+	@echo "... tpsTest.i"
+	@echo "... tpsTest.s"
 	@echo "... utilTest.o"
 	@echo "... utilTest.i"
 	@echo "... utilTest.s"
