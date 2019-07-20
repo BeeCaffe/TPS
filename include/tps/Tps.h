@@ -44,6 +44,7 @@ namespace tps {
         void compenIms();
         /**other functions**/
         double fi(double d);
+        cv::Mat normalizeImg(cv::Mat imf);
     private:
         const int rows = 768;
         const int cols = 1024;

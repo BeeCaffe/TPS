@@ -2,6 +2,7 @@
 // Created by caffe on 19-7-16.
 //
 #include "../../include/utils/utils.h"
+#include <algorithm>
 using namespace std;
 
 void readConf(string confPath, map<string,string> &m_mapConfInfo){
@@ -148,4 +149,32 @@ void process(const int now, const int total , time_t statTm, time_t endTm){
          printf(" ");
      }
      printf("]\n");
+}
+
+void medianFilter(cv::Mat& img){
+    /**
+     * brief : utilzes median filter to source image.
+     *
+     * img : the image.
+     */
+    int row=img.rows;
+    int col=img.cols;
+    double box[9];
+    for(int i=1;i<row-2;i++){
+        for(int j=1;j<col-2;j++){
+            for(int c=0;c<3;c++){
+                box[0]=img.ptr<cv::Vec3f>(i-1)[j-1][c];
+                box[1]=img.ptr<cv::Vec3f>(i)[j-1][c];
+                box[2]=img.ptr<cv::Vec3f>(i+1)[j-1][c];
+                box[3]=img.ptr<cv::Vec3f>(i-1)[j][c];
+                box[4]=img.ptr<cv::Vec3f>(i)[j][c];
+                box[5]=img.ptr<cv::Vec3f>(i+1)[j][c];
+                box[6]=img.ptr<cv::Vec3f>(i-1)[j+1][c];
+                box[7]=img.ptr<cv::Vec3f>(i)[j+1][c];
+                box[8]=img.ptr<cv::Vec3f>(i+1)[j+1][c];
+                sort(box,box+9);
+                img.ptr<cv::Vec3f>(i)[j][c]=box[4];
+            }
+        }
+    }
 }

@@ -1,4 +1,7 @@
 #include "../include/utils/utils.h"
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <iostream>
 using namespace std;
 void readConfTest(){
@@ -35,9 +38,25 @@ void loadtxtTest(){
     Eigen::MatrixXf mat = loadtxt(path);
     std::cout<<mat<<endl;
 }
+
+void midianFilterTest(){
+    string imPath = "resource/compened";
+    vector<cv::String> nameList;
+    cv::glob(imPath,nameList);
+    for (auto path:nameList){
+        cv::Mat img = cv::imread(path);
+//        cv::medianBlur(img,img,5);
+        cout<<img<<endl;
+        cv::imshow("img",img);
+        cv::waitKey(0);
+        cv::destroyAllWindows();
+        img.release();
+    }
+}
 int main(){
 //    readConfTest();
 //    savetxtTest();
-    loadtxtTest();
+//    loadtxtTest();
+    midianFilterTest();
     return 0;
 }

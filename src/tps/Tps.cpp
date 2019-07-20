@@ -229,8 +229,8 @@ Eigen::Vector3f Tps::compenSgPx(Eigen::Vector3f& c_in,const int row, const int c
         r+=W(i,2)*sum;
     }
     b+=W(N,0)+W(N+1,0)*c_in[2]+W(N+2,0)*c_in[1]+W(N+3,0)*c_in[0];
-    g+=W(N,0)+W(N+1,1)*c_in[2]+W(N+2,1)*c_in[1]+W(N+3,1)*c_in[0];
-    r+=W(N,0)+W(N+1,2)*c_in[2]+W(N+2,2)*c_in[1]+W(N+3,2)*c_in[0];
+    g+=W(N,1)+W(N+1,1)*c_in[2]+W(N+2,1)*c_in[1]+W(N+3,1)*c_in[0];
+    r+=W(N,2)+W(N+1,2)*c_in[2]+W(N+2,2)*c_in[1]+W(N+3,2)*c_in[0];
     Eigen::Vector3f c_out;
     c_out<<b,g,r;
     return c_out;
@@ -244,7 +244,8 @@ cv::Mat Tps::compenSgIm(cv::Mat& img) {
      *
      * return image.
      */
-    cv::Mat cpIm(cv::Size(img.size()),CV_8UC3);
+//    cv::Mat cpIm(cv::Size(img.size()),CV_8UC3);
+    cv::Mat cpIm=img.clone();
     Eigen::Vector3f px;
     time_t statTm = time((time_t*)NULL);
     for(size_t i=0;i<rows;i++){
@@ -253,9 +254,9 @@ cv::Mat Tps::compenSgIm(cv::Mat& img) {
             px(1) = img.ptr<cv::Vec3f>(i)[j][1],
             px(2) = img.ptr<cv::Vec3f>(i)[j][2];
             px = compenSgPx(px,i,j);
-            cpIm.ptr<cv::Vec3b>(i)[j][0]=(uchar)(px(0));
-            cpIm.ptr<cv::Vec3b>(i)[j][1]=(uchar)(px(1));
-            cpIm.ptr<cv::Vec3b>(i)[j][2]=(uchar)(px(2));
+            cpIm.ptr<cv::Vec3f>(i)[j][0]=px(2);
+            cpIm.ptr<cv::Vec3f>(i)[j][1]=px(1);
+            cpIm.ptr<cv::Vec3f>(i)[j][2]=px(0);
             time_t endTm = time((time_t*)NULL);
             process(i*cols+j,cols*rows,statTm,endTm);
         }
@@ -271,14 +272,56 @@ void Tps::compenIms(){
     for (auto path : pathList){
         num++;
         cv::Mat im = cv::imread(path);
-        cv::Mat imc;
-        imc=compenSgIm(im);
+        cv::Mat imc,imf,img;
+        im.convertTo(imf,CV_32FC3);
+        imc=compenSgIm(imf);
+        imc=normalizeImg(imc);
+        imc.convertTo(img,CV_8UC3);
         string savePath = compenedRoot+to_string(num)+".jpg";
-        cv::imwrite(savePath,imc);
+        cv::imwrite(savePath,img);
         im.release();
         imc.release();
+        imf.release();
+        img.release();
     }
     printf("Done!");
+}
+
+cv::Mat Tps::normalizeImg(cv::Mat imf) {
+    /**
+     * brief : this function is used to exclude the clip error of TPS method.
+     *
+     * imf : the image of CV_32FC3
+     *
+     * img : the image of CV_8UC3
+     */
+     int col = imf.cols;
+     int row = imf.rows;
+     cout<<imf<<endl;
+     float max[3]={0.,0.,0.},min[3]={0.,0.,0.},detal[3];
+     std::cout<<imf<<endl;
+     for(int i=0;i<row;i++){
+         for(int j=0;j<col;j++){
+             for (int c=0;c<3;c++){
+                 float px = imf.ptr<cv::Vec3f>(i)[j][c];
+                 if(px<=300&&px>=-100){
+                     max[c]=max[c]>px ? max[c]:px;
+                     min[c]=min[c]<px ? min[c]:px;
+                 }
+             }
+         }
+     }
+     detal[0]=max[0]-min[0];
+     detal[1]=max[1]-min[1];
+     detal[2]=max[2]-min[2];
+    for(int i=0;i<row;i++){
+        for(int j=0;j<col;j++){
+            imf.ptr<cv::Vec3f>(i)[j][0]=imf.ptr<cv::Vec3f>(i)[j][0]/detal[0]*255;
+            imf.ptr<cv::Vec3f>(i)[j][1]=imf.ptr<cv::Vec3f>(i)[j][1]/detal[1]*255;
+            imf.ptr<cv::Vec3f>(i)[j][2]=imf.ptr<cv::Vec3f>(i)[j][2]/detal[2]*255;
+        }
+    }
+    return imf;
 }
 
 double Tps::fi(double d){

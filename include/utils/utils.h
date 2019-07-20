@@ -22,4 +22,5 @@ void readConf(string confPath, map<string,string> &m_mapConfInfo);
 Eigen::MatrixXf loadtxt(string& path);
 int savetxt(string& path,Eigen::MatrixXf);
 void process(const int now, const int total,time_t statTm,time_t endTm);
+void medianFilter(cv::Mat& img);
 #endif //TPS_UTILS_H

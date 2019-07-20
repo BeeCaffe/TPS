@@ -78,10 +78,12 @@ test/CMakeFiles/utilTest.dir/utilTest.cpp.o
  /home/caffe/anaconda3/include/opencv2/flann/saving.h
  /home/caffe/anaconda3/include/opencv2/flann/timer.h
  /home/caffe/anaconda3/include/opencv2/highgui.hpp
+ /home/caffe/anaconda3/include/opencv2/highgui/highgui.hpp
  /home/caffe/anaconda3/include/opencv2/highgui/highgui_c.h
  /home/caffe/anaconda3/include/opencv2/imgcodecs.hpp
  /home/caffe/anaconda3/include/opencv2/imgcodecs/imgcodecs_c.h
  /home/caffe/anaconda3/include/opencv2/imgproc.hpp
+ /home/caffe/anaconda3/include/opencv2/imgproc/imgproc.hpp
  /home/caffe/anaconda3/include/opencv2/imgproc/imgproc_c.h
  /home/caffe/anaconda3/include/opencv2/imgproc/types_c.h
  /home/caffe/anaconda3/include/opencv2/ml.hpp
