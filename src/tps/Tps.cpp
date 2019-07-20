@@ -51,8 +51,8 @@ void Tps::loadImgs() {
     for (auto path:camImPath){
         cv::Mat img = cv::imread(path,CV_LOAD_IMAGE_UNCHANGED);
         cv::Mat imf;
-//        img.convertTo(imf,CV_32FC3,1/255.);
-        img.convertTo(imf,CV_32FC3);
+        img.convertTo(imf,CV_32FC3,1/255.);
+//        img.convertTo(imf,CV_32FC3);
         camImList.push_back(imf);
         img.release();
         imf.release();
@@ -60,8 +60,8 @@ void Tps::loadImgs() {
     for (auto path:prjImPath){
         cv::Mat img = cv::imread(path,CV_LOAD_IMAGE_UNCHANGED);
         cv::Mat imf;
-//        img.convertTo(imf,CV_32FC3,1/255.);
-        img.convertTo(imf,CV_32FC3);
+        img.convertTo(imf,CV_32FC3,1/255.);
+//        img.convertTo(imf,CV_32FC3);
         prjImList.push_back(imf);
         img.release();
         imf.release();
@@ -304,7 +304,7 @@ cv::Mat Tps::normalizeImg(cv::Mat imf) {
          for(int j=0;j<col;j++){
              for (int c=0;c<3;c++){
                  float px = imf.ptr<cv::Vec3f>(i)[j][c];
-                 if(px<=300&&px>=-100){
+                 if(px<=400&&px>=-300){
                      max[c]=max[c]>px ? max[c]:px;
                      min[c]=min[c]<px ? min[c]:px;
                  }
