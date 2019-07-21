@@ -14,7 +14,7 @@ The thin plate spline interpolation of illumination compensation of projector-ca
 
 <h1>Useage</h1>
 <h3>Method one:</h3>
-- using the IDE of **CLion** open this projection<br\>
-- Enter the sub directory of test/main.cpp<br\>
-- Click the **Run** button<br\>
+using the IDE of **CLion** open this projection<br\>
+Enter the sub directory of test/main.cpp<br\>
+Click the **Run** button<br\>
 		Deverse to mention that,you should compute all the weight matrix first and use those weight matrix to compensate images.and the weight computation process may be time cost.For 1024x768 images, my compute need 10 hours to compute all points's weight matrix.
