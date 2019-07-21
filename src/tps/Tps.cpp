@@ -51,8 +51,7 @@ void Tps::loadImgs() {
     for (auto path:camImPath){
         cv::Mat img = cv::imread(path,CV_LOAD_IMAGE_UNCHANGED);
         cv::Mat imf;
-        img.convertTo(imf,CV_32FC3,1/255.);
-//        img.convertTo(imf,CV_32FC3);
+        img.convertTo(imf,CV_32FC3);
         camImList.push_back(imf);
         img.release();
         imf.release();
@@ -60,8 +59,7 @@ void Tps::loadImgs() {
     for (auto path:prjImPath){
         cv::Mat img = cv::imread(path,CV_LOAD_IMAGE_UNCHANGED);
         cv::Mat imf;
-        img.convertTo(imf,CV_32FC3,1/255.);
-//        img.convertTo(imf,CV_32FC3);
+        img.convertTo(imf,CV_32FC3);
         prjImList.push_back(imf);
         img.release();
         imf.release();
@@ -244,7 +242,6 @@ cv::Mat Tps::compenSgIm(cv::Mat& img) {
      *
      * return image.
      */
-//    cv::Mat cpIm(cv::Size(img.size()),CV_8UC3);
     cv::Mat cpIm=img.clone();
     Eigen::Vector3f px;
     time_t statTm = time((time_t*)NULL);
@@ -254,9 +251,9 @@ cv::Mat Tps::compenSgIm(cv::Mat& img) {
             px(1) = img.ptr<cv::Vec3f>(i)[j][1],
             px(2) = img.ptr<cv::Vec3f>(i)[j][2];
             px = compenSgPx(px,i,j);
-            cpIm.ptr<cv::Vec3f>(i)[j][0]=px(2);
+            cpIm.ptr<cv::Vec3f>(i)[j][0]=px(0);
             cpIm.ptr<cv::Vec3f>(i)[j][1]=px(1);
-            cpIm.ptr<cv::Vec3f>(i)[j][2]=px(0);
+            cpIm.ptr<cv::Vec3f>(i)[j][2]=px(2);
             time_t endTm = time((time_t*)NULL);
             process(i*cols+j,cols*rows,statTm,endTm);
         }
@@ -275,7 +272,6 @@ void Tps::compenIms(){
         cv::Mat imc,imf,img;
         im.convertTo(imf,CV_32FC3);
         imc=compenSgIm(imf);
-        imc=normalizeImg(imc);
         imc.convertTo(img,CV_8UC3);
         string savePath = compenedRoot+to_string(num)+".jpg";
         cv::imwrite(savePath,img);
@@ -297,30 +293,43 @@ cv::Mat Tps::normalizeImg(cv::Mat imf) {
      */
      int col = imf.cols;
      int row = imf.rows;
-     cout<<imf<<endl;
-     float max[3]={0.,0.,0.},min[3]={0.,0.,0.},detal[3];
-     std::cout<<imf<<endl;
-     for(int i=0;i<row;i++){
-         for(int j=0;j<col;j++){
+     float box[9];
+     for(int i=1;i<row-2;i++){
+         for(int j=1;j<col-2;j++){
              for (int c=0;c<3;c++){
                  float px = imf.ptr<cv::Vec3f>(i)[j][c];
-                 if(px<=400&&px>=-300){
-                     max[c]=max[c]>px ? max[c]:px;
-                     min[c]=min[c]<px ? min[c]:px;
-                 }
+//                 if(px<=400&&px>=-300){
+//                     max[c]=max[c]>px ? max[c]:px;
+//                     min[c]=min[c]<px ? min[c]:px;
+//                 }
+                if(px<0||px>256){
+                    box[0]=imf.ptr<cv::Vec3f>(i-1)[j-1][c];
+                    box[1]=imf.ptr<cv::Vec3f>(i)[j-1][c];
+                    box[2]=imf.ptr<cv::Vec3f>(i+1)[j-1][c];
+                    box[3]=imf.ptr<cv::Vec3f>(i-1)[j][c];
+                    box[4]=imf.ptr<cv::Vec3f>(i)[j][c];
+                    box[5]=imf.ptr<cv::Vec3f>(i+1)[j][c];
+                    box[6]=imf.ptr<cv::Vec3f>(i-1)[j+1][c];
+                    box[7]=imf.ptr<cv::Vec3f>(i)[j+1][c];
+                    box[8]=imf.ptr<cv::Vec3f>(i+1)[j+1][c];
+                    for(int k =0;k<9;k++) {
+                        if(box[k]<255&&box[k]>0)
+                        imf.ptr<cv::Vec3f>(i)[j][c] = box[k];
+                    }
+                }
              }
          }
      }
-     detal[0]=max[0]-min[0];
-     detal[1]=max[1]-min[1];
-     detal[2]=max[2]-min[2];
-    for(int i=0;i<row;i++){
-        for(int j=0;j<col;j++){
-            imf.ptr<cv::Vec3f>(i)[j][0]=imf.ptr<cv::Vec3f>(i)[j][0]/detal[0]*255;
-            imf.ptr<cv::Vec3f>(i)[j][1]=imf.ptr<cv::Vec3f>(i)[j][1]/detal[1]*255;
-            imf.ptr<cv::Vec3f>(i)[j][2]=imf.ptr<cv::Vec3f>(i)[j][2]/detal[2]*255;
-        }
-    }
+//     detal[0]=max[0]-min[0];
+//     detal[1]=max[1]-min[1];
+//     detal[2]=max[2]-min[2];
+//    for(int i=0;i<row;i++){
+//        for(int j=0;j<col;j++){
+//            imf.ptr<cv::Vec3f>(i)[j][0]=imf.ptr<cv::Vec3f>(i)[j][0]/detal[0]*255;
+//            imf.ptr<cv::Vec3f>(i)[j][1]=imf.ptr<cv::Vec3f>(i)[j][1]/detal[1]*255;
+//            imf.ptr<cv::Vec3f>(i)[j][2]=imf.ptr<cv::Vec3f>(i)[j][2]/detal[2]*255;
+//        }
+//    }
     return imf;
 }
 
