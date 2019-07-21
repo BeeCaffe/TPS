@@ -7,10 +7,10 @@ The thin plate spline interpolation of illumination compensation of projector-ca
 		for those people who suppose to do the same thing.Meanwhile,if you want to get more detail information about this program, you would better to refer the paper of '''Robust Error-Tolerant Photomtric Projector Compensation'''.
 
 <h1>Environment</h1>
-		ubuntu 18.04.1 
-		g++ 7.4.0
-		opencv 3.4.6
-		clion
+		ubuntu 18.04.1 <br\>
+		g++ 7.4.0<br \>
+		opencv 3.4.6<br \>
+		clion<br\>
 
 <h1>useage</h1>
 <h3>method one:</h3>
