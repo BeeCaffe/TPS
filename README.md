@@ -13,8 +13,20 @@ system,as a contrast experiment of our work.And, In the process of reproducing t
 
 # Useage
 ## Method one:
-- using the IDE of **clion** open this projection
+- using the IDE of **Clion** open this project
 - Enter the sub directory of test/main.cpp
-- Click the **run** button
-/Deverse to mention that,you should compute all the weight matrix first and use those weight matrix to compensate images.and the weight<br/>
-computation process may be time cost.For 1024x768 images, my compute need 10 hours to compute all points's weight matrix.
+- Click the **Run** button to run ```computeAllWeight```
+- Click the **Run** button to run ```compenImages```<br\>
+
+Deverse to mention that,you should ```compute all the weight matrix first``` and ```use those weight matrix to compensate images```.and the weightcomputation process may be time cost.For 1024x768 images, my compute need 10 hours to compute all points's weight matrix,and those weights have been saved in specified path,which is able to modify in `config/config.txt`
+
+## Configure File
+- `CameraImagesRoot` : The diectory path where save the camera capture images.
+- `ProjectImagesRoot` : The diectory path where save the projection images. 
+- `WeightSaveRoot`: where save the weight matrix,for 1024x768 images,it may costs 3GB space.
+- `CompenImagesRoot` : where save the images you suppose to compensate.
+- `CompenSaveRoot` : where save the compensated images.
+
+# Result
+![Uncompensate Image](https://github.com/BeeCaffe/TPS/blob/master/resource/compen/00061.jpg)
+![Compensated Image](https://github.com/BeeCaffe/TPS/blob/master/resource/compened/1.jpg)
