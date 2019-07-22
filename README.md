@@ -28,5 +28,7 @@ Deverse to mention that,you should ```compute all the weight matrix first``` and
 - `CompenSaveRoot` : where save the compensated images.
 
 # Result
+- Uncompensate Image
 ![Uncompensate Image](https://github.com/BeeCaffe/TPS/blob/master/resource/compen/00061.jpg)
+- Compensated Image
 ![Compensated Image](https://github.com/BeeCaffe/TPS/blob/master/resource/compened/1.jpg)
